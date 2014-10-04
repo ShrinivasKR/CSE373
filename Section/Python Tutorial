@@ -1,0 +1,119 @@
+Python 2.7.8 (default, Jun 30 2014, 16:03:49) [MSC v.1500 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> list = ['A', 'B', 'C', 'D']
+>>> list
+['A', 'B', 'C', 'D']
+>>> list[0]
+'A'
+>>> list[2]
+'C'
+>>> list * 3
+['A', 'B', 'C', 'D', 'A', 'B', 'C', 'D', 'A', 'B', 'C', 'D']
+>>> del list[1]
+>>> list
+['A', 'C', 'D']
+>>> list.append('E')
+>>> list
+['A', 'C', 'D', 'E']
+>>> list2 = ['F', 'G']
+>>> list + list2
+['A', 'C', 'D', 'E', 'F', 'G']
+>>> list3 = list + list2
+>>> list3
+['A', 'C', 'D', 'E', 'F', 'G']
+>>> list.extend(list2)
+>>> list
+['A', 'C', 'D', 'E', 'F', 'G']
+>>> list3
+['A', 'C', 'D', 'E', 'F', 'G']
+>>> list2
+['F', 'G']
+>>> list.pop()
+'G'
+>>> list
+['A', 'C', 'D', 'E', 'F']
+>>> 
+>>> l = range(5)
+>>> l
+[0, 1, 2, 3, 4]
+>>> l[2:]
+[2, 3, 4]
+>>> l[:3]
+[0, 1, 2]
+>>> l[1:3]
+[1, 2]
+>>> 
+>>> 
+>>> l
+[0, 1, 2, 3, 4]
+>>> [x**2 for x in l]
+[0, 1, 4, 9, 16]
+>>> string = 'shrini'
+>>> string[3]
+'i'
+>>> string[1:3]
+'hr'
+>>> string2 = 'vas'
+>>> string1 + '' + string2
+
+Traceback (most recent call last):
+  File "<pyshell#33>", line 1, in <module>
+    string1 + '' + string2
+NameError: name 'string1' is not defined
+>>> string + '' + string2
+'shrinivas'
+>>> hash table - key and value
+SyntaxError: invalid syntax
+>>> python version is Dictionary
+SyntaxError: invalid syntax
+>>> d = {1: 'A', 2: 'B', 3: 'C'}
+>>> d.ote,s()
+
+Traceback (most recent call last):
+  File "<pyshell#38>", line 1, in <module>
+    d.ote,s()
+AttributeError: 'dict' object has no attribute 'ote'
+>>> d.items()
+[(1, 'A'), (2, 'B'), (3, 'C')]
+>>> d.keys()
+[1, 2, 3]
+>>> d.values()
+['A', 'B', 'C']
+>>> d[2]
+'B'
+>>> washington = {'capitol': 'olympia', 'population': 6800000}
+>>> washington.keys()
+['capitol', 'population']
+>>> washington['population']
+6800000
+>>> washington['biggest city']
+
+Traceback (most recent call last):
+  File "<pyshell#46>", line 1, in <module>
+    washington['biggest city']
+KeyError: 'biggest city'
+>>> washington['biggest city'] = 'seattle'
+>>> washington.keys()
+['biggest city', 'capitol', 'population']
+>>> l = range(5)
+>>> l
+[0, 1, 2, 3, 4]
+>>> [x**2 for x in l]
+[0, 1, 4, 9, 16]
+>>> map(lambda x: x**2, l)
+[0, 1, 4, 9, 16]
+>>> l
+[0, 1, 2, 3, 4]
+>>> filter(lambda x: x%2==0, l)
+[0, 2, 4]
+>>> filter(lambda x: x%2!=0, 1)
+
+Traceback (most recent call last):
+  File "<pyshell#55>", line 1, in <module>
+    filter(lambda x: x%2!=0, 1)
+TypeError: 'int' object is not iterable
+>>> l
+[0, 1, 2, 3, 4]
+>>> filter(lambda x: x%2!=0, l)
+[1, 3]
+>>> 
