@@ -251,7 +251,7 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
            if (lut4==null) {
                 lut4 = new byte[256];
                 for (int j=0; j<256; j++) {
-                    lut4[j] = (byte)(j < 128 ? 0: 200);
+                    lut4[j] = (byte)(j < 128 ? 0: 200); 
                 }
                 ByteLookupTable blut4 = new ByteLookupTable(0, lut4); 
                 op4 = new LookupOp(blut4, null);
@@ -272,14 +272,8 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
     			 * ==================================================================> STUDENT SHOULD DO THIS
     			 *   Write code to save the current state for undoing and dispose of any redoable actions.
     			 */
-        	/*	ImageIO.write((undoStack.pop()), format, savefile);
-    			biTemp = new BufferedImage(w, h, undoStack.pop());
-    			gWorking = biWorking.getGraphics();
-    			gWorking.drawImage(biOriginal, 0, 0, null);
-        	*/	
-        	//also have to put setenable/disable
-        		undoStack.push(biWorking);
-        		redoStack.clear(); 
+        		undoStack.pop();
+        		redoStack.clear();
         	    /* End of student's code to handle manipulation of Undo and Redo stacks when an image operation is performed. */
         	
         		biFiltered = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
