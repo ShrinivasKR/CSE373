@@ -95,11 +95,13 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
     int h;
     byte[] lut0, lut3, lut4;
     LookupOp op0, op3, op4;
-    
     static JPopupMenu popup;
 
     // Here, you should declare two variables to hold instances of your stack class, with one for Undo and one for Redo.
-    
+    //ImageStack undoStack = new ImageStack();
+    //ImageStack redoStack = new ImageStack();
+    private ImageStack undoStack;
+    private ImageStack redoStack;
     
     /**
      * ==================================================================> NEW FEATURES FOR UI TEST
@@ -126,16 +128,14 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
      * ==================================================================> NEW FEATURES FOR UI TEST
      */
     public ImageEnhancerWithUndoAndRedoV2(JMenuItem undoItem, JMenuItem redoItem) { // Version of the constructor taking 2 arguments.
-   	 	this();
-   	 	this.undoItem = undoItem;
-   	 	this.redoItem = redoItem;
-
-   	 	/**
+    	this();
+    	/**
    	     * ==================================================================> STUDENT SHOULD DO THIS
    	     * Add code to initialize the state of the menu items undoItem and redoItem, so that they are disabled
    	     * using the JMenuItem method setEnabled(boolean).  Your code should go here :
    	     */
-   	 	
+   	 	undoItem.setEnabled(false);
+   	 	redoItem.setEnabled(false);
    	 	// end of your code for initializing menu items' state.
     }
     
@@ -160,8 +160,8 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
         
         // Add code to create empty stack instances for the Undo stack and the Redo stack.
         // Put your code for this here:
-        
-        
+        undoStack = new ImageStack();
+        redoStack = new ImageStack();
         // We add a listener to this component so that it can bring up popup menus.
         MouseListener popupListener = new PopupListener();
         addMouseListener(popupListener);
@@ -272,7 +272,7 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
     			 * ==================================================================> STUDENT SHOULD DO THIS
     			 *   Write code to save the current state for undoing and dispose of any redoable actions.
     			 */
-        	
+        		
         	    /* End of student's code to handle manipulation of Undo and Redo stacks when an image operation is performed. */
         	
         		biFiltered = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
@@ -375,9 +375,14 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
          */
         // Add code to create the new menu items here.
         
+        undoItem = new JMenuItem("5: Undo");
+        redoItem = new JMenuItem("6: Redo");
+        
         // Next, replace this call to the 0-argument constructor by a call to the new 2-argument constructor,
         // using as arguments the two new menu items.
-        si = new ImageEnhancerWithUndoAndRedoV2(); 
+
+        
+        si = new ImageEnhancerWithUndoAndRedoV2(undoItem, redoItem); 
         
         f.add("Center", si);
         formats = new JComboBox(si.getFormats());
@@ -407,28 +412,22 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
         menuItem = new JMenuItem("4: RGB Thresholds at 128");
         menuItem.addActionListener(si);
         popup.add(menuItem);
-        
-        //added by myself
-        menuItem = new JMenuItem("5: Undo");
-        menuItem.addActionListener(si);
-        popup.add(menuItem);
-        menuItem = new JMenuItem("6: Redo");
-        menuItem.addActionListener(si);
-        popup.add(menuItem);
-        
-        
+         
         /**
          * ==================================================================> STUDENT SHOULD DO THIS
          */
         // Add each of the two new menu items to the popup menu.
         // Also, add the action listener to each item, just as for the other items above.
-        
+        undoItem.addActionListener(si);
+        popup.add(undoItem);
+        redoItem.addActionListener(si);
+        popup.add(redoItem);       
         // end of your code for this.
     }
     
     private void printNumberOfElementsInBothStack() {
-    	// Uncomment this code that prints out the numbers of elements in each of the two stacks (Undo and Redo):
-        //System.out.println("Undo stack has " + undoStack.getSize() + " elements.");
-        //System.out.println("Redo stack has " + redoStack.getSize() + " elements.");
+    	//Uncomment this code that prints out the numbers of elements in each of the two stacks (Undo and Redo):
+        System.out.println("Undo stack has " + undoStack.getSize() + " elements.");
+        System.out.println("Redo stack has " + redoStack.getSize() + " elements.");
     }
 }
