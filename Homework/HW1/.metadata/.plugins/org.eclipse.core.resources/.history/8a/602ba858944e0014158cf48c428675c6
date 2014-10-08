@@ -1,7 +1,6 @@
 package app;
 import java.util.ArrayList;
 import java.awt.image.BufferedImage;
-import java.util.EmptyStackException;
 
 
 public class ImageStack {

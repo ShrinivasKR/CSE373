@@ -1,7 +1,6 @@
 package app;
 import java.util.ArrayList;
 import java.awt.image.BufferedImage;
-import java.util.EmptyStackException;
 
 
 public class ImageStack {
@@ -21,7 +20,7 @@ public class ImageStack {
 	}
 	
 	//throws an exception if the stack is empty; otherwise returns the top element, removing it from the stack.
-	public BufferedImage pop() throws Exception {
+	public BufferedImage pop() throws {
 		try { 
 			BufferedImage temp = edits.remove(edits.size() - 1);
 			wasPop = true;

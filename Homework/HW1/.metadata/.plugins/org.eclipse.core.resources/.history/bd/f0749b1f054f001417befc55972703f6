@@ -297,8 +297,13 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
     			 * ==================================================================> STUDENT SHOULD DO THIS
     			 *   Write code to save the current state for undoing and dispose of any redoable actions.
     			 */
-
-        	undoStack.push(duplicate(biWorking));              
+        	/*	ImageIO.write((undoStack.pop()), format, savefile);
+    			biTemp = new BufferedImage(w, h, undoStack.pop());
+    			gWorking = biWorking.getGraphics();
+    			gWorking.drawImage(biOriginal, 0, 0, null);
+        	*/	
+        	//also have to put setenable/disable
+                undoStack.push(duplicate(biWorking));              
         		redoStack.clear();
         		undoItem.setEnabled(true);
         		redoItem.setEnabled(false);

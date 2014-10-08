@@ -260,30 +260,20 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
             break;
             
         case 5 : /* undo */
-        	try {
-            	biFiltered = undoStack.pop();
-        		redoStack.push(duplicate(biWorking));
-            	redoItem.setEnabled(true);            	            	
-        	} catch(Exception e) {
-        		
-        	}      
-        	if (undoStack.isEmpty()) {
-        		undoItem.setEnabled(false);
-        	} 
+        	if (lut5==null) {
+        		ByteLookupTable blut5 = new ByteLookupTable(0, lut5);
+        		op5 = new LookupOp(blut5, null);
+        	}
+        	op = op5;
         	break;
         	
         case 6 : /* redo */
-        	try {
-        		undoStack.push(duplicate(biWorking));
-        		biFiltered = redoStack.pop();
-        		undoItem.setEnabled(true);
-        	} catch(Exception e) {
-        		
-        	} 
-        	if (redoStack.isEmpty()) {
-        		redoItem.setEnabled(false);        		
-        	}
-        	break;
+            if(lut6==null) {
+            	ByteLookupTable blut6 = new ByteLookupTable(0, lut6);
+            	op6 = new LookupOp(blut6, null);
+            }
+            op = op6;
+            break;
             
         default:return;
         }
@@ -297,11 +287,16 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
     			 * ==================================================================> STUDENT SHOULD DO THIS
     			 *   Write code to save the current state for undoing and dispose of any redoable actions.
     			 */
-
-        	undoStack.push(duplicate(biWorking));              
-        		redoStack.clear();
-        		undoItem.setEnabled(true);
-        		redoItem.setEnabled(false);
+        	/*	ImageIO.write((undoStack.pop()), format, savefile);
+    			biTemp = new BufferedImage(w, h, undoStack.pop());
+    			gWorking = biWorking.getGraphics();
+    			gWorking.drawImage(biOriginal, 0, 0, null);
+        	*/	
+        	//also have to put setenable/disable
+        		undoStack.push(biWorking);
+        		redoStack.clear(); 
+                undoItem.setEnabled(true);
+                redoItem.setEnabled(false);
         	    /* End of student's code to handle manipulation of Undo and Redo stacks when an image operation is performed. */
         		biFiltered = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         		op.filter(biWorking, biFiltered);
@@ -458,9 +453,4 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
         System.out.println("Undo stack has " + undoStack.getSize() + " elements.");
         System.out.println("Redo stack has " + redoStack.getSize() + " elements.");
     }
-    private static BufferedImage duplicate(BufferedImage tbCopied) {
-		return 	new BufferedImage(tbCopied.getColorModel(), tbCopied.copyData(null), tbCopied.isAlphaPremultiplied(), null);
-    	
-	}
 }
-	

@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="138" key="DIALOG_Y_ORIGIN"/>
+		<item value="333" key="DIALOG_Y_ORIGIN"/>
+		<item value="650" key="DIALOG_X_ORIGIN"/>
 		<item value="381" key="DIALOG_HEIGHT"/>
-		<item value="563" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
-		<item value="false" key="wholeword"/>
-		<item value="public" key="selection"/>
+		<item value="true" key="wholeword"/>
+		<item value="undoItem" key="selection"/>
 		<list key="findhistory">
-			<item value="private"/>
-			<item value="get"/>
-			<item value="println"/>
-			<item value="actionperformed"/>
-			<item value="actionperf"/>
-			<item value="undo"/>
-			<item value="menu"/>
-			<item value="imageenhancer without"/>
+			<item value="undoitem"/>
+			<item value="bifilter"/>
+			<item value="printNumberOfElementsInBothStack();"/>
+			<item value="biworking"/>
+			<item value="filter"/>
+			<item value="ImageIO.write("/>
+			<item value="imageio"/>
+			<item value="pop"/>
 		</list>
 		<list key="replacehistory">
 			<item value="public"/>
