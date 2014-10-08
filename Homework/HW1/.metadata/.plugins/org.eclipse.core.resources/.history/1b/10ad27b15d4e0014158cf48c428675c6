@@ -276,10 +276,10 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
     			gWorking.drawImage(biOriginal, 0, 0, null);
         	*/	
         	//also have to put setenable/disable
-        		undoStack.push(biWorking);
+        		undoStack.push(biFiltered);
         		redoStack.clear(); 
-                undoItem.setEnabled(true);
-                redoItem.setEnabled(false);
+                //undoItem.setEnabled(true);
+                //redoItem.setEnabled(false);
         	    /* End of student's code to handle manipulation of Undo and Redo stacks when an image operation is performed. */
         		biFiltered = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         		op.filter(biWorking, biFiltered);

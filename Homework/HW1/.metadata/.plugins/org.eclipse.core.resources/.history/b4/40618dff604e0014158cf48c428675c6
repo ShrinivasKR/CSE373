@@ -276,7 +276,7 @@ public class ImageEnhancerWithUndoAndRedoV2 extends Component implements ActionL
     			gWorking.drawImage(biOriginal, 0, 0, null);
         	*/	
         	//also have to put setenable/disable
-        		undoStack.push(biWorking);
+        		undoStack.push(biFiltered);
         		redoStack.clear(); 
                 undoItem.setEnabled(true);
                 redoItem.setEnabled(false);
